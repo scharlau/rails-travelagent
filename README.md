@@ -1,4 +1,7 @@
-# README
+# README for Rails Travelagent
+
+This is the application used for a class on Ruby on Rails students based around a travel agency that books cruises
+for its customers.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

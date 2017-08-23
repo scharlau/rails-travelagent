@@ -20,6 +20,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
+     @customers = Customer.all
   end
 
   # POST /addresses
@@ -41,6 +42,7 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1
   # PATCH/PUT /addresses/1.json
   def update
+     
     respond_to do |format|
       if @address.update(address_params)
         format.html { redirect_to @address, notice: 'Address was successfully updated.' }

@@ -20,16 +20,17 @@ class CreditCardsController < ApplicationController
 
   # GET /credit_cards/1/edit
   def edit
+     @customers = Customer.all
   end
 
   # POST /credit_cards
   # POST /credit_cards.json
   def create
   # because we've changed the date we need to modify the create method to pull paramaters from the form
-    
-    
     @credit_card = CreditCard.new(credit_card_params)
-
+    @credit_card.exp_date = params[:exp_date][:year].to_s + "/" + params[:exp_date][:month].to_s
+   
+    
     respond_to do |format|
       if @credit_card.save
         format.html { redirect_to @credit_card, notice: 'Credit card was successfully created.' }
@@ -44,6 +45,7 @@ class CreditCardsController < ApplicationController
   # PATCH/PUT /credit_cards/1
   # PATCH/PUT /credit_cards/1.json
   def update
+     @credit_card.exp_date = params[:exp_date][:year].to_s + "/" + params[:exp_date][:month].to_s
     respond_to do |format|
       if @credit_card.update(credit_card_params)
         format.html { redirect_to @credit_card, notice: 'Credit card was successfully updated.' }

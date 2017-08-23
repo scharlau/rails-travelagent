@@ -16,7 +16,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.first_name %></td>
+        <td><%= customer.id %> <%= customer.first_name %></td>
         <td><%= customer.last_name %></td>
         <td><%= customer.has_good_credit %></td>
         <td><%= customer.paid %></td>

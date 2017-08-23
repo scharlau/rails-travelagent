@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822153342) do
+ActiveRecord::Schema.define(version: 20170823185610) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20170822153342) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["customer_id"], name: "index_addresses_on_customer_id"
+  end
+
+  create_table "cabins", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "beds"
+    t.integer  "deck"
+    t.integer  "ship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ship_id"], name: "index_cabins_on_ship_id"
   end
 
   create_table "credit_cards", force: :cascade do |t|
@@ -33,6 +43,14 @@ ActiveRecord::Schema.define(version: 20170822153342) do
     t.index ["customer_id"], name: "index_credit_cards_on_customer_id"
   end
 
+  create_table "cruises", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "ship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ship_id"], name: "index_cruises_on_ship_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -40,6 +58,13 @@ ActiveRecord::Schema.define(version: 20170822153342) do
     t.boolean  "paid"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "ships", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "tonnage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
