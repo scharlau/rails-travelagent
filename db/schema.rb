@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823185610) do
+ActiveRecord::Schema.define(version: 20170825063435) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20170823185610) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ship_id"], name: "index_cabins_on_ship_id"
+  end
+
+  create_table "cabins_reservations", id: false, force: :cascade do |t|
+    t.integer "cabin_id",       null: false
+    t.integer "reservation_id", null: false
   end
 
   create_table "credit_cards", force: :cascade do |t|
@@ -58,6 +63,26 @@ ActiveRecord::Schema.define(version: 20170823185610) do
     t.boolean  "paid"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.decimal  "amount"
+    t.string   "card_number"
+    t.integer  "customer_id"
+    t.integer  "reservation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["customer_id"], name: "index_payments_on_customer_id"
+    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "cruise_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["cruise_id"], name: "index_reservations_on_cruise_id"
+    t.index ["customer_id"], name: "index_reservations_on_customer_id"
   end
 
   create_table "ships", force: :cascade do |t|

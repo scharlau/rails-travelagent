@@ -20,5 +20,20 @@
   <%= @customer.paid %>
 </p>
 
+<p> <b>Address:</b>
+<%= "#{@customer.address.street}" %>,
+<%= "#{@customer.address.city}" %>
+<%= "#{@customer.address.postcode}" %>
+</p>
+
+<p>
+<b>Credit Cards:</b> <br />
+<% @customer.credit_cards.each do |cc| %>
+<%= cc.number %>
+<%= cc.name_on_card %>
+<%= cc.organisation %>
+<%= cc.exp_date %>
+</p> <% end %> 
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
