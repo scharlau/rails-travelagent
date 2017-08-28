@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
+    <%= f.label :amount %> Outstanding
+    <%= f.text_field :amount %> 
   </div>
 
   <div class="field">
@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :customer_id %>
-    <%= f.collection_select( :customer_id, @customers, :id, :last_name ) %>
+    <%= f.text_field :customer_id %>
   </div>
 
   <div class="field">

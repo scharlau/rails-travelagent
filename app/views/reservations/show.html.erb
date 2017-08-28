@@ -16,7 +16,9 @@
 <%=cabin.beds %> beds
 on deck <%=cabin.deck%> of the
 <%=Ship.find(cabin.ship_id).name%>
-</p> <%end%> 
+</p> <%end%>
+
+<p><%= link_to 'Make a payment', payments_path %></p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>

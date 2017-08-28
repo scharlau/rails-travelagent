@@ -37,29 +37,19 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        
-        
-
-
-            # retrieve the cabin parameter and strip off the letters
-            # so that only the cabin value remains and then add it to
-            # the reservation object
+            # retrieve the cabin parameter and then add it to the reservation object
  
             cabin_id = params[:cabin]
             logger.info "cabin_id: #{cabin_id}"
             cabin_id_a = cabin_id[:cabin_id]
             logger.info "cabin_id_a: #{cabin_id_a}"
     
-
-   
-  cabin = Cabin.find(cabin_id_a)
-    logger.info "cabin: #{cabin.id}"
+            cabin = Cabin.find(cabin_id_a)
+            logger.info "cabin: #{cabin.id}"
+         
+           @reservation.cabins << cabin
+           @reservation.save
  
-   @reservation.cabins << cabin
-   @reservation.save
- 
-
-        
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else

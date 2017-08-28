@@ -6,6 +6,7 @@ class PaymentsController < ApplicationController
   # GET /payments.json
   def index
     @payments = Payment.all
+    @reservations = Reservation.all
     
   end
 
@@ -17,8 +18,9 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
-    @customers = Customer.all
-    @reservations = Reservation.all
+    @payment.customer_id = params[:customer_id]
+    @payment.amount = params[:amount]
+    @reservations = Reservation.where(["customer_id = ?", @payment.customer_id])
   end
 
   # GET /payments/1/edit
