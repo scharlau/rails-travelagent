@@ -1,5 +1,6 @@
 class ShipsController < ApplicationController
   before_action :set_ship, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /ships
   # GET /ships.json

@@ -1,5 +1,6 @@
 class CreditCardsController < ApplicationController
   before_action :set_credit_card, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /credit_cards
   # GET /credit_cards.json

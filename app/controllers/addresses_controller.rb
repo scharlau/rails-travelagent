@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /addresses
   # GET /addresses.json

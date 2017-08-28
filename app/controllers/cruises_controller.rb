@@ -1,5 +1,6 @@
 class CruisesController < ApplicationController
   before_action :set_cruise, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /cruises
   # GET /cruises.json
@@ -73,4 +74,6 @@ class CruisesController < ApplicationController
     def cruise_params
       params.require(:cruise).permit(:name, :ship_id)
     end
+    
+    
 end

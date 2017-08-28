@@ -1,5 +1,6 @@
 class CabinsController < ApplicationController
   before_action :set_cabin, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /cabins
   # GET /cabins.json
