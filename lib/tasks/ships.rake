@@ -1,8 +1,10 @@
+# this file makes use of Faker gem to generate random data
 namespace :ships do
   desc "TODO"
   task seed_cabins: :environment do
     
-    #destroy the tables before creating new data
+    #remove the data from the tables before creating new data
+    #this ensures we have no stray references to objects that no longer exist
     Ship.destroy_all
     Cabin.destroy_all
     Cruise.destroy_all
@@ -10,16 +12,14 @@ namespace :ships do
     Address.destroy_all
     CreditCard.destroy_all
     Reservation.destroy_all
-    cabins_reservations = Cabin.find_by_sql(
-              "select cabin_id from cabins_reservations ")
-    p "cabins_reservations: " + cabins_reservations.size.to_s
-    
+    p "tables emptied"
     
     #create the ships
     5.times do |index |
     Ship.create!(name: Faker::Coffee.blend_name,
                  tonnage: Faker::Number.number(2).to_i*1000 )
     end
+    p "ships created"
     
     #create cabins for each ship
     ships = Ship.all
@@ -32,6 +32,7 @@ namespace :ships do
           deck: Faker::Number.between(1,3) )
       end         
     end
+     p "cabins created"
     
     #create cruises using the ships
     # the rails capitalize method does just that to each word
@@ -44,6 +45,7 @@ namespace :ships do
            )
       end         
     end
+    p "cruises created"
     
     #create customers
     3.times do |index |
@@ -74,11 +76,11 @@ namespace :ships do
         organisation: organisations.sample.to_s
       )
     end
+    p "customers created"
     
     #with everything in place we can create reservations.
     #we use 'save' instead of 'create' in order to get all parameters into the reservation
     cruises = Cruise.all
-    p "cruises: " + cruises.size.to_s
     customers = Customer.all
     cruises.each do |cruise|
       
@@ -100,16 +102,10 @@ namespace :ships do
             booked_cabins << cabin
           end
         end
-        p "booked cabins: " + booked_cabins.size.to_s
-        p "cabins: " + cabins.size.to_s
-        cabins_sample = cabins.sample
-        p "cabins_sample: " + cabins_sample.id.to_s
-        reservation.cabins << cabins_sample
-        p "reservation: " + reservation.id.to_s
-        p "cruise: " + reservation.cruise_id.to_s + " customer: " + reservation.customer_id.to_s
         reservation.save
         
       end
     end
+    p "reservations created"
   end
 end 
