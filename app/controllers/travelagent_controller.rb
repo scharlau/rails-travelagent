@@ -9,10 +9,10 @@ class TravelagentController < ApplicationController
       @cabins_available << @cruise_cabins
     end
     @reservation_groups = Reservation.all.group('cruise_id').count('id')
-    @reservations = Reservation.all
+   
     @bookings = []
     @reservation_groups.each do |group|
-      @bookings << group.count
+      @bookings << group[1]
     end
     
   end
