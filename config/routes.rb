@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
    
+  resources :users
   resources :payments
   resources :reservations
   get 'travelagent/index'
