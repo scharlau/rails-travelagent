@@ -1,4 +1,5 @@
 class TravelagentController < ApplicationController
+
   def index
     @cruises = Cruise.all
     @cruise_names = []
@@ -9,11 +10,11 @@ class TravelagentController < ApplicationController
       @cabins_available << @cruise_cabins
     end
     @reservation_groups = Reservation.all.group('cruise_id').count('id')
-   
+
     @bookings = []
     @reservation_groups.each do |group|
       @bookings << group[1]
     end
-    
+
   end
 end
