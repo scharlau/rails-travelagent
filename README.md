@@ -1,24 +1,7 @@
-# README
+#TRAVELAGENT APPLICATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the application used for a class on Ruby on Rails based around a travel agency that books cruises for its customers. You can find the practicals explaining the steps to build this app at: http://homepages.abdn.ac.uk/b.scharlau/pages/teaching/CS5550/practicals/
 
-Things you may want to cover:
+The goal of this practical is to move beyond simple apps to one, which brings a variety of aspects referenced tables and objects together so that the participants experience the breadth and variety available in Rails applications.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario.
