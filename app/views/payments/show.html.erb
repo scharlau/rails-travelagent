@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Card number:</strong>
-  <%= @payment.card_number %>
+  <strong>Credit card:</strong>
+  <%= @payment.credit_card.organisation %>
 </p>
 
 <p>
@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <strong>Reservation:</strong>
-  <%= @payment.reservation.id %>
+  <strong>Reservation Cruise:</strong>
+  <%= @payment.reservation.cruise.name %> booked on <%= @payment.reservation.created_at %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |

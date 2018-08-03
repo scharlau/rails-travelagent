@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /reservations
   # GET /reservations.json
@@ -11,23 +10,18 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    
-    
   end
 
   # GET /reservations/new
   def new
     @reservation = Reservation.new
-    @cruise = Cruise.find(params[:cruise_id])
-    @reservation.cruise_id = @cruise.id
     @customers = Customer.all
+    @cruise = Cruise.find(params[:cruise_id])
     @cabins = Cabin.where(["ship_id = ?", @cruise.ship_id])
   end
 
   # GET /reservations/1/edit
   def edit
-    @cruises = Cruise.all
-    @customers = Customer.all
   end
 
   # POST /reservations
@@ -37,19 +31,15 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-            # retrieve the cabin parameter and then add it to the reservation object
- 
-            cabin_id = params[:cabin]
-            logger.info "cabin_id: #{cabin_id}"
-            cabin_id_a = cabin_id[:cabin_id]
-            logger.info "cabin_id_a: #{cabin_id_a}"
-    
-            cabin = Cabin.find(cabin_id_a)
-            logger.info "cabin: #{cabin.id}"
-         
-           @reservation.cabins << cabin
-           @reservation.save
- 
+        # retrieve the cabin parameter and then add it to the reservation object
+
+          cabin_id = params[:cabin]
+          cabin_id = cabin_id[:cabin_id]
+          cabin = Cabin.find(cabin_id)
+          logger.info "cabin: #{cabin.id}"
+
+          @reservation.cabins << cabin
+          @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else

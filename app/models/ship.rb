@@ -1,3 +1,4 @@
 class Ship < ApplicationRecord
-    has_many :cruises
+  validates :name, :tonnage, presence: true
+  has_many :cruises
 end

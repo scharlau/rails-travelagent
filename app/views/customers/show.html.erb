@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @customer.first_name %>
+  <strong>Last name:</strong>
+  <%= @customer.last_name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @customer.last_name %>
+  <strong>First name:</strong>
+  <%= @customer.first_name %>
 </p>
 
 <p>
@@ -20,14 +20,13 @@
   <%= @customer.paid %>
 </p>
 
+<%= link_to 'Edit Address', edit_address_path( @customer.address.id ) %><br>
 <p> <b>Address:</b>
-<%= "#{@customer.address.street}" %>,
-<%= "#{@customer.address.city}" %>
-<%= "#{@customer.address.postcode}" %>
-
-<%= link_to 'Edit', edit_address_path( @customer.address.id ) %><br>
+  <%= "#{@customer.address.street}" %>,
+  <%= "#{@customer.address.city}" %>
+  <%= "#{@customer.address.postcode}" %>
 </p>
-
+<p><%= link_to 'Add a Credit Card', new_credit_card_path(:customer_id => @customer) %></p>
 <p>
 <b>Credit Cards:</b> </p>
 <% @customer.credit_cards.each do |cc| %>
@@ -36,9 +35,9 @@
 <%= cc.name_on_card %>
 <%= cc.organisation %>
 <%= cc.exp_date %>
+<%= link_to 'Edit the card', edit_credit_card_path(cc.id) %>
 </p>
 <% end %>
-<p><%= link_to 'Add a Credit Card', new_credit_card_path(:customer_id => @customer) %></p>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

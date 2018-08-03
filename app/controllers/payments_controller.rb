@@ -1,32 +1,29 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-  rescue_from ActiveRecord::RecordNotFound, with: :redirect_if_not_found
 
   # GET /payments
   # GET /payments.json
   def index
     @payments = Payment.all
-    @reservations = Reservation.all
-    
   end
 
   # GET /payments/1
   # GET /payments/1.json
   def show
+  #  @credit_card = CreditCard.find(@payment.credit_card.id)
+  #  @reservation = Reservation.find(@payment.reservation.id)
   end
 
   # GET /payments/new
   def new
     @payment = Payment.new
-    @payment.customer_id = params[:customer_id]
-    @payment.amount = params[:amount]
-    @reservations = Reservation.where(["customer_id = ?", @payment.customer_id])
+    @reservation = Reservation.find(params[:reservation_id])
+    @customer = Customer.find(@reservation.customer.id)
+    @credit_cards = @customer.credit_cards
   end
 
   # GET /payments/1/edit
   def edit
-    @customers = Customer.all
-    @reservations = Reservation.all
   end
 
   # POST /payments
@@ -77,6 +74,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:amount, :card_number, :customer_id, :reservation_id)
+      params.require(:payment).permit(:amount, :credit_card_id, :customer_id, :reservation_id)
     end
 end

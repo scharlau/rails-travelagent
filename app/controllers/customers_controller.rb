@@ -29,9 +29,10 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        
-        @customer.create_address
-        
+
+        @customer.create_address!(street: 'the wrong place',
+          city: 'someplace', postcode: 'XY1 2YX')
+
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
@@ -73,6 +74,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :has_good_credit, :paid)
+      params.require(:customer).permit(:last_name, :first_name, :has_good_credit, :paid)
     end
 end

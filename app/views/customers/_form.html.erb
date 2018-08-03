@@ -1,4 +1,4 @@
-<%= form_for(customer) do |f| %>
+<%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
   </div>
 
   <div class="field">
-    <%= f.label :has_good_credit %>
-    <%= f.number_field :has_good_credit %>
+    <%= form.label :has_good_credit %>
+    <%= form.number_field :has_good_credit %>
   </div>
 
   <div class="field">
-    <%= f.label :paid %>
-    <%= f.check_box :paid %>
+    <%= form.label :paid %>
+    <%= form.check_box :paid %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
 <% end %>

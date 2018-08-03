@@ -1,4 +1,4 @@
-<%= form_for(address) do |f| %>
+<%= form_with(model: address, local: true) do |form| %>
   <% if address.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
@@ -12,26 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :street %>
-    <%= f.text_field :street %>
+    <%= form.label :street %>
+    <%= form.text_field :street %>
   </div>
 
   <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
   </div>
 
   <div class="field">
-    <%= f.label :postcode %>
-    <%= f.text_field :postcode %>
+    <%= form.label :postcode %>
+    <%= form.text_field :postcode %>
   </div>
 
   <div class="field">
-    <%= f.label :customer_id %>
-    <%= f.collection_select( :customer_id, @customers, :id, :last_name ) %>
+    <%= form.label :customer_id %>
+    <%= form.collection_select(:customer_id, @customers, :id, :last_name) %>
+    <!-- = form.text_field :customer_id % -->
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
 <% end %>

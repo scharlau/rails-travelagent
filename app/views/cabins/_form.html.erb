@@ -1,4 +1,4 @@
-<%= form_for(cabin) do |f| %>
+<%= form_with(model: cabin, local: true) do |form| %>
   <% if cabin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cabin.errors.count, "error") %> prohibited this cabin from being saved:</h2>
@@ -12,26 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :beds %>
-    <%= f.number_field :beds %>
+    <%= form.label :beds %>
+    <%= form.number_field :beds %>
   </div>
 
   <div class="field">
-    <%= f.label :deck %>
-    <%= f.number_field :deck %>
+    <%= form.label :deck %>
+    <%= form.number_field :deck %>
   </div>
 
   <div class="field">
-    <em><%= f.label :ship_id %></em>
-     <%= f.collection_radio_buttons( :ship_id, @ships, :id, :name ) %>
+    <%= form.label :ship_id %>
+     <%= form.collection_select( :ship_id, @ships, :id, :name ) %>
+    <!-- form.text_field :ship_id -->
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= form.submit %>
   </div>
 <% end %>

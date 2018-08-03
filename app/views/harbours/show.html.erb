@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @harbour.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @harbour.country %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @harbour.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @harbour.long %>
+</p>
+
+<%= link_to 'Edit', edit_harbour_path(@harbour) %> |
+<%= link_to 'Back', harbours_path %>

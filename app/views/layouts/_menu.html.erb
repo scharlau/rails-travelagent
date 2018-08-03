@@ -1,7 +1,10 @@
 <%= image_tag("globeLogo.png",  :alt => "Travelagent.com for your travel needs" ) %>
-<%= image_tag("travelagentbanner.png", :alt => "Travelagent.com is your home to arrange the perfect cruise" ) %>
-<%=link_to 'Find a Cruise', cruises_path %>
-<%=link_to 'Make a Payment', reservations_path %>
-<%=link_to 'Log in', login_path %>
-<%=link_to 'Log out', logout_path %>
+<%= image_tag("travelagentbanner.png",  :alt => "Travelagent.com is your home to arrange the perfect cruise" ) %>
+<p><%=link_to 'Find a Cruise', cruises_path %>  |
+  <%= link_to 'Find a Customer', customers_path %> |
+  <%= link_to 'Find a reservation', reservations_path %>  |
+  <%=link_to 'Our ships', ships_path %> |
+ <%=link_to 'Our Harbours', harbours_path %> |
+ <%=link_to 'Log in', login_path %> |
+ <%=link_to 'Log out', logout_path %>
 </p>

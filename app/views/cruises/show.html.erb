@@ -7,14 +7,8 @@
 
 <p>
   <strong>Ship:</strong>
-  <%= @cruise.ship.name %>
+  <%= @cruise.ship.name  %>
 </p>
-
-<p><%= link_to 'Add a Reservation', new_reservation_path(:cruise_id => @cruise) %> <p>
-
-<%= link_to 'Edit', edit_cruise_path(@cruise) %> |
-<%= link_to 'Back', cruises_path %>
-
 <h4>Reservations</h4>
 
 <% @cruise.reservations.each do |res|
@@ -25,3 +19,8 @@
 </p>
 
 <% end %>
+
+<p><%= link_to 'Add a Reservation', new_reservation_path(:cruise_id => @cruise) %> <p>
+
+<%= link_to 'Edit', edit_cruise_path(@cruise) %> |
+<%= link_to 'Back', cruises_path %>

@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Cruises</h1>
-
+<p>
+<%= form_tag(cruises_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+</p>
 <table>
   <thead>
     <tr>

@@ -4,10 +4,10 @@ one:
   name: MyString
   beds: 1
   deck: 1
-  customer: one
+  ship: one
 
 two:
   name: MyString
   beds: 1
   deck: 1
-  customer: two
+  ship: two
