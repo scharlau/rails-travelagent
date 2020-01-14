@@ -1,4 +1,4 @@
-#TRAVELAGENT APPLICATION
+# TRAVELAGENT APPLICATION
 
 This is the application used for a class on Ruby on Rails based around a travel agency that books cruises for its customers. You can find the practicals explaining the steps to build this app at: https://homepages.abdn.ac.uk/b.scharlau/pages/rails-pages/ 
 
@@ -12,7 +12,7 @@ This application has had nothing done for its styling. It is 'fresh out of the b
 
 By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario.
 
-Deployed to Heroku
+## Deployed to Heroku
 Running as rough working example to see how it can be done
 https://awad-travelagent.herokuapp.com/ 
 Modified gemfile
