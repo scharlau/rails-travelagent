@@ -6,6 +6,17 @@ The goal of this practical is to move beyond simple apps to one, which brings a 
 
 Version 1 was created quickly and without much consideration to the order of what should be done. This worked as a proof of concept.
 
-Version 2 was created with more thought about the order in which concepts in Rails were introduced, and how the application was developed. We'll see how this works this year with students.gh
+Version 2 was created with more thought about the order in which concepts in Rails were introduced, and how the application was developed. We'll see how this works this year with students.
 
 By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario.
+
+Deployed to Heroku
+Running as rough working example to see how it can be done
+https://awad-travelagent.herokuapp.com/ 
+Modified gemfile
+a) add pg gem for Heroku and put sqlite3 under dev
+b) add faker gem to general list as need it in production §
+Push repo via git
+heroku rake db:migrate
+
+

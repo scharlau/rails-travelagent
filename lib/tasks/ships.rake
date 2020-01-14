@@ -1,3 +1,4 @@
+require 'Faker'
 namespace :ships do
   desc "TODO"
   task seed_cabins: :environment do
@@ -17,7 +18,7 @@ namespace :ships do
     #create the ships
    5.times do |index |
        Ship.create!(name: Faker::Coffee.blend_name,
-                tonnage: Faker::Number.number(2).to_i*1000 )
+                tonnage: Faker::Number.number(digits: 2).to_i*1000 )
    end
    p "ships created"
 
@@ -28,8 +29,8 @@ namespace :ships do
         Cabin.create!(
           ship_id: ship.id,
           name: "Suite #{index+1}",
-          beds: Faker::Number.between(1,3),
-          deck: Faker::Number.between(1,3) )
+          beds: Faker::Number.within(range:1..3),
+          deck: Faker::Number.within(range: 1..3) )
       end
     end
      p "cabins created"
@@ -38,7 +39,7 @@ namespace :ships do
     # the rails capitalize method does just that to each word
 
      ships = Ship.all
-     ships.each  do |ship|
+     ships.each do |ship|
       2.times do | index |
         Cruise.create!(
           ship_id: ship.id,
@@ -71,8 +72,8 @@ namespace :ships do
       organisations = ["American Express", "MasterCard", "Visa"]
       CreditCard.create!(
         customer_id: customer.id,
-        number: Faker::Number.number(12),
-        exp_date: year.sample.to_s + "/" + Faker::Number.between(1,12).to_s,
+        number: Faker::Number.number(digits: 12),
+        exp_date: year.sample.to_s + "/" + Faker::Number.within(range:1..12).to_s,
         name_on_card: customer.first_name + " " + customer.last_name,
         organisation: organisations.sample.to_s
       )
