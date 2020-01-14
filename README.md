@@ -15,7 +15,7 @@ Running as rough working example to see how it can be done
 https://awad-travelagent.herokuapp.com/ 
 Modified gemfile
 a) add pg gem for Heroku and put sqlite3 under dev
-b) add faker gem to general list as need it in production §
+b) add faker gem to general list as need it in production 
 Push repo via git
 heroku rake db:migrate
 
