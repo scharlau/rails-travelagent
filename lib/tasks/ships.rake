@@ -1,4 +1,4 @@
-require 'Faker'
+require 'faker'
 namespace :ships do
   desc "TODO"
   task seed_cabins: :environment do
