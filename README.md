@@ -16,11 +16,11 @@ By the way, some of you might recognise this app as being based on the travel ag
 Running as rough working example to see how it can be done
 https://awad-travelagent.herokuapp.com/ 
 Modified gemfile
-a) add pg gem for Heroku and put sqlite3 under dev
-b) add faker gem to general list as need it in production 
-c) Push repo to heroku via git to deploy
-d) Run commands to set up and then seed the database
-        heroku rake db:migrate
-        heroku rake ships:seed_cabins
+1. add pg gem for Heroku and put sqlite3 under dev
+2. add faker gem to general list as need it in production 
+3. Push repo to heroku via git to deploy
+4. Run commands to set up and then seed the database
+* heroku rake db:migrate
+* heroku rake ships:seed_cabins
 
 
