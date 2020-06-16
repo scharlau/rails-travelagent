@@ -12,6 +12,15 @@ Version 3 is the final version done with Rails 5 with final work being done Janu
 
 The master branch is now Rails 6. To make the switch the gemfile was updated, followed by bundle update to bring the gems in line with what's needed. This smoothly updated the gems, and 'bundle install' now runs fine.
 
+Switching to Rails 6, and then Webpacker, means a few changes in how to run this application. You now need to run the following if you're installing this locally.
+bundle install
+rails webpacker:install
+yarn install --missing files
+
+At the moment, however, this application doesn't use any of the webpacker features.
+
+Some tests were added to create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. 
+
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
 
 By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario.

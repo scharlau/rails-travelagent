@@ -1,6 +1,9 @@
 require 'spec_helper'
 require 'rails_helper'
 
+# use login method repeatedly to handle repeated steps in the test
+# each test runs independent of the previous ones, so steps are repeated
+# test database wiped between tests
 def login
     visit '/users/new'
     # puts page.body
@@ -27,7 +30,6 @@ feature 'create customer' do
     scenario "can create customer" do
         login
         visit '/customers/new'
-       
         puts page.body
         expect(page).to have_content('New Customer')
 
