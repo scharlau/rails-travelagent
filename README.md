@@ -8,6 +8,10 @@ Version 1 was created quickly and without much consideration to the order of wha
 
 Version 2 was created with more thought about the order in which concepts in Rails were introduced, and how the application was developed. We'll see how this works with students.
 
+Version 3 is the final version done with Rails 5 with final work being done January 2020.
+
+The master branch is now Rails 6. To make the switch the gemfile was updated, followed by bundle update to bring the gems in line with what's needed. This smoothly updated the gems, and 'bundle install' now runs fine.
+
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
 
 By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario.

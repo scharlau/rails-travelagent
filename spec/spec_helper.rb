@@ -11,7 +11,7 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-require 'capybara'
+require 'capybara/rspec'
 # uncomment default driver line, & comment out register block # for firefox
 # – otherwise headless from command line
 #Capybara.default_driver = :selenium

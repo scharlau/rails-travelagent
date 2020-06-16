@@ -1,9 +1,34 @@
 require 'spec_helper'
 require 'rails_helper'
 
+def login
+    visit '/users/new'
+    # puts page.body
+     fill_in 'user_name', :with=>'Bruce'
+     fill_in 'user_email', :with=>'bruce@bruce.com'
+     fill_in 'user_password', :with=>'bruce123'
+     fill_in 'user_password_confirmation', :with=>'bruce123'
+     click_button 'Create User'
+    # puts page.body
+     expect(page).to have_content('Please log in')
+     visit '/'
+    # puts page.body
+     fill_in 'session[email]', :with=>'bruce@bruce.com'
+     fill_in 'session[password]', :with=>'bruce123'
+     click_button 'commit'
+    # puts page.body
+     expect(page).to have_content('Bruce')
+end
+
 feature 'create customer' do
+    scenario 'login' do
+       login
+    end
     scenario "can create customer" do
+        login
         visit '/customers/new'
+       
+        puts page.body
         expect(page).to have_content('New Customer')
 
         fill_in 'First name', :with=>'Sharon'
@@ -36,6 +61,7 @@ feature 'create customer' do
           expect(page).to have_content('Visa')
     end
     scenario "can create customer error" do
+        login
        visit '/customers/new'
        expect(page).to have_content('New Customer')
        click_button 'Create Customer'
