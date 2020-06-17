@@ -2,10 +2,10 @@
 
 one:
   name: "Smith"
-  email: "Colin@smith.com"
-  password_digest: "mypassword"
+  email: "colin@smith.com"
+  password_digest: "$2a$12$7zTxE1jM2UOr3s9k/eAUseT2N7ZhvUJn2EGONMkDLke9cXoVnoBFy"
 
 two:
   name: "Harrison"
-  email: "Sarah@harrison.com"
+  email: "sarah@harrison.com"
   password_digest: "otherpassword" 

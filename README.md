@@ -35,6 +35,10 @@ All fixtures are completed with sample data as well.
 You can run them all with
 rails test
 
+NOTE: You can run the system/harbours_test.rb with the before_actin: sign_in? as this has the correct hash for the password_digest, and the password used in the test. Therefore, the test passes the correct password for comparison with the hashed password. 
+
+The hash can be found by creating a user account in the app that you want to use in your fixture for testing, and copying the password_digest from the development.log file. This is not elegant, but does work to set up the tests, which will be run repeatedly to confirm the app is running correctly.
+
 The RSpec tests are in create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. There is also a test to create a new customer. You can run this with
 rspec spec/integration/create_customer_spec.rb
 

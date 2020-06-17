@@ -3,14 +3,25 @@ require "application_system_test_case"
 class HarboursTest < ApplicationSystemTestCase
   setup do
     @harbour = harbours(:one)
+    @user = users(:one)
+  end
+
+  def login
+    visit login_url
+    fill_in 'Email', with: @user.email 
+    fill_in 'Password', with: "mypassword" 
+    click_on 'Enter'
+    assert_text 'colin@smith.com'
   end
 
   test "visiting the index" do
+    login 
     visit harbours_url
     assert_selector "h1", text: "Harbours"
   end
 
   test "creating a Harbour" do
+    login
     visit harbours_url
     click_on "New Harbour"
 
@@ -25,6 +36,7 @@ class HarboursTest < ApplicationSystemTestCase
   end
 
   test "updating a Harbour" do
+    login
     visit harbours_url
     click_on "Edit", match: :first
 
@@ -39,6 +51,7 @@ class HarboursTest < ApplicationSystemTestCase
   end
 
   test "destroying a Harbour" do
+    login
     visit harbours_url
     page.accept_confirm do
       click_on "Destroy", match: :first
