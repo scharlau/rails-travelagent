@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  last_name: MyString
-  first_name: MyString
+  last_name: "Smith"
+  first_name: "Colin"
   has_good_credit: 1
   paid: false
 
 two:
-  last_name: MyString
-  first_name: MyString
+  last_name: "Harrison"
+  first_name: "Sarah"
   has_good_credit: 1
   paid: false

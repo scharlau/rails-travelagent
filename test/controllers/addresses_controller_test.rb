@@ -1,8 +1,11 @@
 require 'test_helper'
 
+#modified to add customer, and redirect to customer_url after update because the two are related
+
 class AddressesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @address = addresses(:one)
+    @customer = customers(:one)
   end
 
   test "should get index" do
@@ -16,8 +19,9 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create address" do
-    assert_difference('Address.count') do
-      post addresses_url, params: { address: { city: @address.city, customer_id: @address.customer_id, postcode: @address.postcode, street: @address.street } }
+  
+    assert_difference('Address.count', +1) do
+      post addresses_url, params: { address: { city: "Dundee", customer_id: @customer.id, postcode: "DD4 4ER", street: "15 Commercial Street" } }
     end
 
     assert_redirected_to address_url(Address.last)
@@ -34,8 +38,8 @@ class AddressesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update address" do
-    patch address_url(@address), params: { address: { city: @address.city, customer_id: @address.customer_id, postcode: @address.postcode, street: @address.street } }
-    assert_redirected_to address_url(@address)
+    patch address_url(@address), params: { address: { street: "19 Commercial Street" } }
+    assert_redirected_to customer_url(@customer)
   end
 
   test "should destroy address" do

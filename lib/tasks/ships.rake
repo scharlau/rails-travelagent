@@ -3,7 +3,7 @@ namespace :ships do
   desc "TODO"
   task seed_cabins: :environment do
     #remove the data from the tables before creating new data
-       #this ensures we have no stray references to objects that no longer exist
+    #this ensures we have no stray references to objects that no longer exist
 
       Reservation.destroy_all
       Cabin.destroy_all

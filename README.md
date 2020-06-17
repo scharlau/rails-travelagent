@@ -4,6 +4,10 @@ This is the application used for a class on Ruby on Rails based around a travel 
 
 The goal of this practical is to move beyond simple apps to one, which brings a variety of aspects referenced tables and objects together so that the participants experience the breadth and variety available in Rails applications.
 
+This app user the faker gem to generate random data to populate the tables. Sometimes the gem changes, which brakes this process. Check the generators at https://github.com/faker-ruby/faker if this happens when you run the lib/ships.rake file to generate your ships, cruises, and customers.
+
+### Versions As Branches
+
 Version 1 was created quickly and without much consideration to the order of what should be done. This worked as a proof of concept.
 
 Version 2 was created with more thought about the order in which concepts in Rails were introduced, and how the application was developed. We'll see how this works with students.
@@ -19,7 +23,20 @@ yarn install --missing files
 
 At the moment, however, this application doesn't use any of the webpacker features.
 
-Some tests were added to create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. 
+### Testing
+There are both built-in tests, and the basics of an RSpec integration test.
+
+Rails generates tests by default with Minitest. Some of this code has now been modified to show what you can do with that after you put sample data into the fixtures. Only some of the tests have been edited to work smoothly by way of example.
+These don't work with the application_controller before_action: sign_in? enabled. The RSpec test does.
+addresses_controller_test.rb
+harbours_controller_test.rb
+
+All fixtures are completed with sample data as well.
+You can run them all with
+rails test
+
+The RSpec tests are in create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. There is also a test to create a new customer. You can run this with
+rspec spec/integration/create_customer_spec.rb
 
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
 
@@ -32,8 +49,9 @@ Modified gemfile
 1. add pg gem for Heroku and put sqlite3 under dev
 2. add faker gem to general list as need it in production 
 3. Push repo to heroku via git to deploy
-4. Run commands to set up and then seed the database
+4. Run commands to set up and then seed the database (seed file has harbours, rake file everything else)
 * heroku rake db:migrate
+* heroku rake db:seed
 * heroku rake ships:seed_cabins
 
 
