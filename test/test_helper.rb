@@ -6,17 +6,6 @@ require 'rails/test_help'
 # application with the  before_action :logged_in? uncommented in 
 # the application controller
 
-module SignInHelper
-  def sign_in_as(user)
-    post login_url(email: user.email, password: user.password)
-  end
-
-end
-
-class ActionDispatch::IntegrationTest
-  include SignInHelper
-end
-
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all

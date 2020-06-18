@@ -26,8 +26,10 @@ At the moment, however, this application doesn't use any of the webpacker featur
 ### Testing
 There are both built-in tests, and the basics of an RSpec integration test.
 
-Rails generates tests by default with Minitest. Some of this code has now been modified to show what you can do with that after you put sample data into the fixtures. Only some of the tests have been edited to work smoothly by way of example.
-These don't work with the application_controller before_action: sign_in? enabled. The RSpec test does.
+Rails generates tests by default with Minitest. Some of this code has now been modified to show what you can do with tests after you put sample data into the fixtures. This application shows you that different tests need to be used to cover different aspects of the application. 
+
+Only some of the standard Rails tests have been edited to work to provide examples. Due to the nature of unit testing, some tests only work when the user doesn't need to log into the application.
+These don't work with the application_controller before_action: sign_in? enabled. 
 addresses_controller_test.rb
 harbours_controller_test.rb
 
@@ -35,11 +37,13 @@ All fixtures are completed with sample data as well.
 You can run them all with
 rails test
 
-NOTE: You can run the system/harbours_test.rb with the before_actin: sign_in? as this has the correct hash for the password_digest, and the password used in the test. Therefore, the test passes the correct password for comparison with the hashed password. 
+System tests use the whole stack of the application. That means you can run the system/harbours_test.rb with the before_actin: sign_in? as this has the correct hash for the password_digest, and the password used in the test. This simulates what the browser sees, as the RSpec test does too. Therefore, the test passes the correct password for comparison with the hashed password. 
 
 The hash can be found by creating a user account in the app that you want to use in your fixture for testing, and copying the password_digest from the development.log file. This is not elegant, but does work to set up the tests, which will be run repeatedly to confirm the app is running correctly.
 
-The RSpec tests are in create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. There is also a test to create a new customer. You can run this with
+The RSpec tests have been modified to follow general practice. Controller tests, view, and routing tests have been removed as they don't test the full stack. Some request tests were attempted with user_spec.rb, but that didn't work as not all components were included in the test. 
+
+There is also an integration test: create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. There is also a test to create a new customer. You can run this with
 rspec spec/integration/create_customer_spec.rb
 
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
