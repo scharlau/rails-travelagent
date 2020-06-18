@@ -1,6 +1,8 @@
 require 'spec_helper'
 require 'rails_helper'
 
+# a better version of this would go through all of the steps for creating a customer, adding their details, and then creating a reservation, for which they also made a payment.
+
 # use login method repeatedly to handle repeated steps in the test
 # each test runs independent of the previous ones, so steps are repeated
 # test database wiped between tests

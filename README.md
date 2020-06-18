@@ -48,7 +48,18 @@ rspec spec/integration/create_customer_spec.rb
 
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
 
-By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario.
+### History
+By the way, some of you might recognise this app as being based on the travel agent example from the O'Reilly Enterprise JavaBeans book. This is, indeed, a take on that old scenario. https://books.google.co.uk/books/about/Enterprise_JavaBeans_3_0.html?id=kD-bAgAAQBAJ&redir_esc=y 
+
+### Building the app
+Download the code
+Bundle install
+rails webpacker:install
+yarn install --missing files
+rake db:migrate
+rake db:seed (this loads two harbours into the database)
+rake ships:seed_cabins (this loads the made up data for the app)
+rails server 
 
 ## Deployed to Heroku
 Running as rough working example to see how it can be done
