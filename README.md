@@ -46,6 +46,8 @@ The RSpec tests have been modified to follow general practice. Controller tests,
 There is also an integration test: create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. There is also a test to create a new customer. You can run this with
 rspec spec/integration/create_customer_spec.rb
 
+
+
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
 
 ### History
@@ -56,8 +58,8 @@ By the way, some of you might recognise this app as being based on the travel ag
 2. Bundle install
 3. rails webpacker:install
 4. yarn install --missing files
-5. rake db:migrate
-6. rake db:seed (this loads two harbours into the database)
+5. rails db:migrate
+6. rails db:seed (this loads two harbours into the database)
 7. rake ships:seed_cabins (this loads the made up data for the app)
 8. rails server 
 
