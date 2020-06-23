@@ -46,8 +46,6 @@ The RSpec tests have been modified to follow general practice. Controller tests,
 There is also an integration test: create_customer_spec.rb to cover creating an account, and login to enable the old tests to run with the new configuration that means you need to login before you can see the app. There is also a test to create a new customer. You can run this with
 rspec spec/integration/create_customer_spec.rb
 
-
-
 This application has had nothing done for its styling. It is 'fresh out of the box' with a focus on 'how' components work, and no concern with 'how it looks'.
 
 ### History
