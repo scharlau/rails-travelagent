@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 4444333322221111
+  exp_date: "05/24"
+  name_on_card: "C Smith"
+  organisation: "MC"
+  customer: one
+
+two:
+  number: 8888777766664444
+  exp_date: "06/22"
+  name_on_card: "S Harrison"
+  organisation: "Visa"
+  customer: two

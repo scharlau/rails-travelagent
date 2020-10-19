@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Northern Lights"
+  tonnage: 350000
+
+two:
+  name: "Artic Treasure"
+  tonnage: 275000

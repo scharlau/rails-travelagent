@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  street: "55 Union Street"
+  city: "Aberdeen"
+  postcode: "AB1 3UE"
+  customer: one
+
+two:
+  street: "Meston Building"
+  city: "Aberdeen"
+  postcode: "AB24 3UE"
+  customer: two

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Suite"
+  beds: 1
+  deck: 1
+  ship: one
+
+two:
+  name: "Cabin 101"
+  beds: 1
+  deck: 1
+  ship: two

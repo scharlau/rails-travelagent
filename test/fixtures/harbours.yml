@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Aberdeen"
+  country: "United Kingdom"
+  lat: 57.14255
+  long: -2.0791805
+
+two:
+  name: "Bergen"
+  country: "Norway"
+  lat: 60.39085
+  long: 5.32245

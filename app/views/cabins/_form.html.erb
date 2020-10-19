@@ -1,0 +1,38 @@
+<%= form_with(model: cabin, local: true) do |form| %>
+  <% if cabin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cabin.errors.count, "error") %> prohibited this cabin from being saved:</h2>
+
+      <ul>
+      <% cabin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :beds %>
+    <%= form.number_field :beds %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deck %>
+    <%= form.number_field :deck %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ship_id %>
+     <%= form.collection_select( :ship_id, @ships, :id, :name ) %>
+    <!-- form.text_field :ship_id -->
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
