@@ -23,15 +23,15 @@ yarn install --check-files
 
 ## Moving to Webpacker for Highcharts - updated October 2020
 Switching the app to use Webpacker for the Highchart meant a few changes. 
-Remove the directory app/assets/javascript - all of this will move to a new location. 
-Remove jquery-rails from the gem file
+* Remove the directory app/assets/javascript - all of this will move to a new location. 
+* Remove jquery-rails from the gem file
 
 Modify these files as per what you find in the files:
-package.json - needs to be updated, and after you edit it, then run 'yarn install --check-files' to update the yarn.lock file.
-app/views/layouts/application.html.erb - should use the 'javascript_pack_tag' and 'stylesheet_pack_tag' instead of 'link_tag'.
-app/views/travelagent/index.html.erb -should use the updated 'document.addEventListener' to call highcharts.
-app/javascript/packs/application.js - should show be what you see with references for Highcharts
-config/webpack/environment.js - should include jquery.
+* package.json - needs to be updated, and after you edit it, then run 'yarn install --check-files' to update the yarn.lock file.
+* app/views/layouts/application.html.erb - should use the 'javascript_pack_tag' and 'stylesheet_pack_tag' instead of 'link_tag'.
+* app/views/travelagent/index.html.erb -should use the updated 'document.addEventListener' to call highcharts.
+* app/javascript/packs/application.js - should show be what you see with references for Highcharts
+* config/webpack/environment.js - should include jquery.
 
 ### Testing
 There are both built-in tests, and the basics of an RSpec integration test.
