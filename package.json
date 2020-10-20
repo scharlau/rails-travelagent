@@ -2,10 +2,10 @@
   "name": "travelagent",
   "private": true,
   "dependencies": {
+    "@rails/activestorage": "6.0.3-4",
+    "@rails/ujs": "6.0.3-4",
+    "@rails/webpacker": "5.2.1",
     "channels": "^0.0.4",
-    "@rails/activestorage": "6.0.3-3",
-    "@rails/webpacker": "4.3.0",
-    "@rails/ujs": "6.0.3-3",
     "highcharts": "^8.2.0",
     "jquery": "^3.5.1",
     "turbolinks": "^5.2.0"
