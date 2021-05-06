@@ -6,7 +6,7 @@
     "@rails/ujs": "6.0.3-4",
     "@rails/webpacker": "5.2.1",
     "channels": "^0.0.4",
-    "highcharts": "^8.2.0",
+    "highcharts": "^9.0.0",
     "jquery": "^3.5.1",
     "turbolinks": "^5.2.0"
   },
